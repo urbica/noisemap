@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title></title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+
+<style>
+* { margin: 0; padding: 0; font-family: 'Open Sans', sans-serif, Arial; }
+.map { position: absolute; left: 0; top: 0; bottom: 0; right: 0; }
+body { margin: 0; padding: 0; width: 100%; height: 100%; }
+#panel { position: absolute; left: 20px; top: 20px; width: 300px; background: #000; color: #bbb; z-index: 4000; }
+
+.layerLegend { line-height: 22px; padding: 12px; }
+.layerDescription { padding: 12px; margin: 12px 0px; }
+.layerHeader { padding: 12px; cursor: pointer; }
+.legendItem { display: inline-block; color: #000; min-width: 40px; padding: 4px; }
+
+.layerHeader { font-weight: bold; }
+
+
+#cl1 { background: #E3113A; }
+#cl2 { background: #CB632C; }
+#cl3 { background: #E6B73B; }
+#cl4 { background: #CDC465; }
+#cl5 { background: #E3113A; }
+
+#builtup1 { background: #E3113A; }
+#builtup1 { background: #CB632C; }
+#builtup1 { background: #E6B73B; }
+#builtup1 { background: #CDC465; }
+#builtup1 { background: #E3113A; }
+
+</style>
+<div id='map'></div>
+<div id='panel'>
+<div class='layersMenu'>
+  <div class='layer'>
+    <div class='layerHeader' id='layerToggleRoads'>Слой с дорогами</div>
+    <div class='layerDescription'>Описание слоя с дорогами</div>
+    <div class='layerLegend'>
+        <div class="legendItem" id="cl1">34 db</div>
+        <div class="legendItem" id="cl2">34 db</div>
+        <div class="legendItem" id="cl3">34 db</div>
+        <div class="legendItem" id="cl4">34 db</div>
+        <div class="legendItem" id="cl5">34 db</div>
+    </div>
+  </div>
+  <div class='layer'>
+    <div class='layerHeader' id='layerToggleBuiltup'>Слой с застройкой</div>
+    <div class='layerDescription'>Описание слоя с сеткой застройки</div>
+    <div class='layerLegend'>
+        <div class="legendItem" id="builtup1">34 db</div>
+        <div class="legendItem" id="builtup2">34 db</div>
+        <div class="legendItem" id="builtup3">34 db</div>
+        <div class="legendItem" id="builtup4">34 db</div>
+        <div class="legendItem" id="builtup5">34 db</div>
+    </div>
+  </div>
+  <div class='layer'>
+    <div class='layerHeader' id='layerToggleGps'>GPS Points</div>
+    <div class='layerDescription'>GPS POINTS DESCRIPTION</div>
+    <div class='layerLegend'>
+        <div class="legendItem" id="builtup1">34 db</div>
+        <div class="legendItem" id="builtup2">34 db</div>
+        <div class="legendItem" id="builtup3">34 db</div>
+        <div class="legendItem" id="builtup4">34 db</div>
+        <div class="legendItem" id="builtup5">34 db</div>
+    </div>
+  </div>
+  <div class='layer'>
+    <div class='layerHeader' id='layerToggleNoisePoints'>Noise source points</div>
+    <div class='layerDescription'>Точки с источниками шума</div>
+    <div class='layerLegend'>
+        <div class="legendItem" id="builtup1">34 db</div>
+        <div class="legendItem" id="builtup2">34 db</div>
+        <div class="legendItem" id="builtup3">34 db</div>
+        <div class="legendItem" id="builtup4">34 db</div>
+        <div class="legendItem" id="builtup5">34 db</div>
+    </div>
+  </div>
+
+
+</div>
+<script src='./src/noisemap.js'></script>
+
+</body>
+</html>
