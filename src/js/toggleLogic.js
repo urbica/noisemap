@@ -133,9 +133,15 @@ map.on('load', function () {
       var bbox = [[e.point.x - 32, e.point.y - 32], [e.point.x + 32, e.point.y + 32]];
       var features = map.queryRenderedFeatures(bbox, { layers: ['sensor-bg'] });
       if(!features.length) {
-        if(sensorPanelIsOpen) { toggleSensorPanel(); }
+        if(sensorPanelIsOpen) {
+          toggleSensorPanel();
+          if(demoIsStarted) { toggleDemoMode(); }
+         }
       } else {
-        if(!sensorPanelIsOpen) { toggleSensorPanel(); }
+        if(!sensorPanelIsOpen) {
+          toggleSensorPanel();
+          map.flyTo({center: features[0].geometry.coordinates, zoom: 13});
+         }
       }
     });
 
