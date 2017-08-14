@@ -77,7 +77,7 @@ toggleMode = () => {
     isDemo = true;
     btnDemo.text('Stop');
     btnDemo.attr('class', 'btnStarted');
-    //audio.play();
+    audio.play();
   } else {
     clearInterval(interval);
     isDemo = false;
