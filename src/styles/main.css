@@ -1,0 +1,270 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'NotoSans', sans-serif;
+  font-weight: normal;
+}
+
+#map {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  bottom: 0px;
+  z-index: 1;
+}
+.headerInfo
+.header {
+  position: absolute;
+  margin-top: 9px;
+  margin-left: 25px;
+  width: 252px;
+  height: 49px;
+  opacity: 0.5;
+  font-size: 36px;
+  font-style: italic;
+  text-align: left;
+  color: #ffffff;
+  z-index: 1;
+  cursor: pointer;
+}
+.header:hover {
+  opacity: 0.7;
+}
+
+.info {
+position: absolute;
+object-fit: contain;
+margin-top: 12px;
+margin-left: 10px;
+left: 276px;
+width: 35px;
+opacity: 0.8;
+color: #ffffff;
+z-index: 1;
+cursor: pointer;
+}
+.info:hover {
+  opacity: 1;
+}
+
+#legend {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-left: 240px;
+  margin-bottom: 20px;
+  width: 220px;
+  height: 45px;
+  opacity: 0.8;
+  background-color: #000000;
+  color: #bbb;
+  z-index: 1;
+  top: 9px;
+  right: 10px;
+}
+
+.dbItem{
+   margin-top: 4px;
+   margin-left: 10px;
+   margin-right: 10px;
+   width: 50px;
+   height: 19px;
+   font-family: Arial;
+   font-size: 14px;
+   text-align: center;
+   color: #ffffff;
+  }
+
+.legendItem{
+  position: relative;
+    display: block;
+    width: 200px;
+  	height: 6px;
+  	background-image: linear-gradient(to right, #0c34aa, #2391cd 51%, #f40268);
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+
+#time {
+  position: fixed;
+  bottom: 20px;
+  left: 240px;
+  width: 650px;
+  padding: 20px;
+  height: 44px;
+  opacity: 0.8;
+  background-color: #000000;
+  z-index: 4;
+}
+
+.timePeriods {
+  margin-left: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.timeClass {
+  width: 85px;
+  height: 19px;
+  color: #fff;
+  font-size: 14px;
+  text-align: left;
+  color: #ffffff;
+}
+
+.timeline {
+  width: 600px;
+  margin-left: 25px;
+  margin-top: 14px;
+  background-color: #ffffff;
+}
+
+#slider {
+  width: 650px;
+}
+
+#description {
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  width: 562px;
+	background-color: #101a4a;
+  padding: 10px;
+  overflow-y: auto;
+  height: 100%;
+  z-index: 5;
+  transition: all 1s ease-in;
+}
+
+
+.tab {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-left: 21px;
+  font-size: 36px;
+  font-style: italic;
+  text-align: center;
+  color: #ffffff;
+}
+
+.tablinks {
+  border: none;
+  font-size: 36px;
+  font-style: italic;
+  background-color: transparent;
+  cursor: pointer;
+  color: #fff;
+  opacity: 0.5;
+  transition: 0.3s;
+  margin-bottom: 10px;
+}
+
+.tablinks:hover {
+  opacity: 0.8;
+  animation: ease;
+  margin-bottom: 10px;
+}
+
+.tablinks.active {
+  opacity: 1;
+  margin-bottom: 5px;
+  border-bottom: 5px solid #fff;
+  cursor: pointer;
+}
+
+.tabcontent {
+  width: 505px;
+  margin-left: 21px;
+  margin-top: 29px;
+	font-size: 18px;
+	color: #ffffff;
+  overflow-y: auto;
+}
+
+/*#project*/
+
+#method {
+  display: none;
+}
+
+
+
+/*
+.groupHeader {
+  font-weight: bold;
+  padding: 4px;
+  cursor: pointer;
+  border: 1px #fff;
+}
+
+.groupHidden {
+  padding: 8px;
+  cursor: pointer;
+  background: rgba(89, 88, 90, 0.59);
+  border: 1px #fff;
+}
+
+.groupVisible {
+  background: #233832;
+  padding: 8px;
+  cursor: pointer;
+}
+*/
+
+
+
+
+
+/*.legendIconItem {
+  line-height: 19px;
+}
+
+.iconItem {
+  line-height: 19px;
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  border-radius: 8px;
+  background: #00AADD;
+  text-align: center;
+}
+
+.group_overlay {
+  background-color: rgba(89, 88, 90, 0.59);
+  color: #fff;
+  font-size: 12px;
+  font-style: normal;
+  font-family: sans-serif;
+  border-color: #fff;
+  padding: 10px;
+  margin-bottom: 0;
+}
+
+.map-overlay h2 {
+  line-height: 19px;
+  display: block;
+  color: #fff;
+  font-size: 12px;
+  font-style: normal;
+  font-family: sans-serif;
+  border-color: #fff;
+  padding: 10px;
+}
+
+.map-overlay input {
+  background-color: transparent;
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  cursor: ew-resize;
+}
+*/

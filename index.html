@@ -1,97 +1,139 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset='utf-8' />
-    <title></title>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='http://d3js.org/d3.v3.min.js' defer></script>
+    <script src='src/js/toggleLogic.js' defer></script>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.css' rel='stylesheet' />
-    <style>
-        body { margin:0; padding:0; }
-        #map { position:absolute; top:0; bottom:0; width:100%; }
-    </style>
-</head>
-<body>
-
-<style>
-* { margin: 0; padding: 0; font-family: 'Open Sans', sans-serif, Arial; }
-.map { position: absolute; left: 0; top: 0; bottom: 0; right: 0; }
-body { margin: 0; padding: 0; width: 100%; height: 100%; }
-#panel { position: absolute; left: 20px; top: 20px; width: 300px; background: #000; color: #bbb; z-index: 4000; }
-
-.layerLegend { line-height: 22px; padding: 12px; }
-.layerDescription { padding: 12px; margin: 12px 0px; }
-.layerHeader { padding: 12px; cursor: pointer; }
-.legendItem { display: inline-block; color: #000; min-width: 40px; padding: 4px; }
-
-.layerHeader { font-weight: bold; }
-
-
-#cl1 { background: #E3113A; }
-#cl2 { background: #CB632C; }
-#cl3 { background: #E6B73B; }
-#cl4 { background: #CDC465; }
-#cl5 { background: #E3113A; }
-
-#builtup1 { background: #E3113A; }
-#builtup1 { background: #CB632C; }
-#builtup1 { background: #E6B73B; }
-#builtup1 { background: #CDC465; }
-#builtup1 { background: #E3113A; }
-
-</style>
-<div id='map'></div>
-<div id='panel'>
-<div class='layersMenu'>
-  <div class='layer'>
-    <div class='layerHeader' id='layerToggleRoads'>Слой с дорогами</div>
-    <div class='layerDescription'>Описание слоя с дорогами</div>
-    <div class='layerLegend'>
-        <div class="legendItem" id="cl1">34 db</div>
-        <div class="legendItem" id="cl2">34 db</div>
-        <div class="legendItem" id="cl3">34 db</div>
-        <div class="legendItem" id="cl4">34 db</div>
-        <div class="legendItem" id="cl5">34 db</div>
+    <link href="src/styles/main.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&amp;subset=cyrillic" rel="stylesheet">
+  </head>
+  <body>
+  <div id="map"></div>
+  <div class='header' onclick="toggleDescription(true)"> КАРТА ШУМА </div>
+  <div class='info' onclick="toggleDescription(true)"> <img src="/Users/tatiana_ivannikova/Documents/urbica_noise_v2/noise_v2/src/info_icon.svg" style="width:35px;height:35px;center"></div>
+  <div id='description'>
+    <div class="tab">
+      <div class="tablinks" onclick="openTab(event,'project')" id="defaultOpen"> О ПРОЕКТЕ </div>
+      <div class="tablinks" onclick="openTab(event,'method')"> МЕТОДОЛОГИЯ </div>
+      <button id="closeButton" class="tablinks" onclick="toggleDescription(false)">
+        <img src="/Users/tatiana_ivannikova/Documents/urbica_noise_v2/noise_v2/src/close.svg" style="width:33px;height:28px;">
+      </button>
     </div>
-  </div>
-  <div class='layer'>
-    <div class='layerHeader' id='layerToggleBuiltup'>Слой с застройкой</div>
-    <div class='layerDescription'>Описание слоя с сеткой застройки</div>
-    <div class='layerLegend'>
-        <div class="legendItem" id="builtup1">34 db</div>
-        <div class="legendItem" id="builtup2">34 db</div>
-        <div class="legendItem" id="builtup3">34 db</div>
-        <div class="legendItem" id="builtup4">34 db</div>
-        <div class="legendItem" id="builtup5">34 db</div>
-    </div>
-  </div>
-  <div class='layer'>
-    <div class='layerHeader' id='layerToggleGps'>GPS Points</div>
-    <div class='layerDescription'>GPS POINTS DESCRIPTION</div>
-    <div class='layerLegend'>
-        <div class="legendItem" id="builtup1">34 db</div>
-        <div class="legendItem" id="builtup2">34 db</div>
-        <div class="legendItem" id="builtup3">34 db</div>
-        <div class="legendItem" id="builtup4">34 db</div>
-        <div class="legendItem" id="builtup5">34 db</div>
-    </div>
-  </div>
-  <div class='layer'>
-    <div class='layerHeader' id='layerToggleNoisePoints'>Noise source points</div>
-    <div class='layerDescription'>Точки с источниками шума</div>
-    <div class='layerLegend'>
-        <div class="legendItem" id="builtup1">34 db</div>
-        <div class="legendItem" id="builtup2">34 db</div>
-        <div class="legendItem" id="builtup3">34 db</div>
-        <div class="legendItem" id="builtup4">34 db</div>
-        <div class="legendItem" id="builtup5">34 db</div>
-    </div>
+
+  <div id="project" class="tabcontent">
+      <p> Население городов растет (цифра ООН), вместе с тем растут и запросы горожан на качество жизни в городе, качество городской среды.
+Шумовое картографирование необходимо крупным городам, так как шумовое загрязнение - один из тех показателей качества среды, который влияет не только на комфорт жителей, но и на состояние их здоровья.
+(шокирующие факты - цифры ВОЗ)
+Карта шума - эффективный инструмент анализа шумового загрязнения города, позволяющий быстро и точно определить места, наиболее подверженные воздействию шума и выявить источники шума.
+Шумовое загрязнение неоднородно в пространстве и во времени, его распространение зависит от множества параметров городской среды. Именно поэтому необходимо создавать модели и изучать закономерности распространения шума для того чтобы упростить мониторинг городского шума.
+Проект включал 5 этапов:
+разработка методологии исследования;
+разработка датчика измерения шума;
+статические замеры шума вблизи основных источников источников:
+дорог разных категорий,
+железных дорог,
+мест проведения строительных работ,
+скопления людей.
+обработка полученных данных;
+создание карты шумового ландшафта города.
+     </p>
   </div>
 
+  <div id="method" class="tabcontent">
+     <p> Methodology described here</p>
+  </div>
 
-</div>
-<script src='./src/noisemap.js'></script>
+  </div>
 
-</body>
+  <div id='legend'>
+
+            <div class="dbItem" > < 45 дБ </div>
+            <div class="dbItem" > 55 дБ</div>
+            <div class="dbItem" > > 60 дБ</div>
+
+            <div class="legendItem"> </div>
+
+  </div>
+
+  <div id='time'>
+    <div class="timePeriods">
+          <div class='timeClass' > 7:00 - 10:00 </div>
+          <div class='timeClass' > 10:00 - 12:00 </div>
+          <div class='timeClass' > 12:00 - 15:00 </div>
+          <div class='timeClass' > 15:00 - 20:00 </div>
+          <div class='timeClass' > 20:00 - 23:00 </div>
+    </div>
+    <div class='timeLine' id='line' >
+         <input id='slider' type='range' min='1' max='6' step='1' value='1'>
+   </div>
+  </div>
+
+    <script>
+      mapboxgl.accessToken = 'pk.eyJ1IjoidGF0aWFuYWl2YW5uaWtvdmEiLCJhIjoiY2o0bzA3azRnMWd0ZTJ3cGcxdHd2NnUzYSJ9.2ps-jd_6FNsnteFLjqsvog';
+      var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/light-v9',
+        center: [31.4606, 20.7927],
+        zoom: 0.5
+      });
+
+      // var time = [
+      //   'morning', //0
+      //   'day', //1
+      //   'evening',//2
+      //   'night'//3
+      // ];
+      //
+      // function filterBy(time) {
+      //   var filters = ['==', 'time', time];
+      //   map.setFilter(' ', filters);
+      //   map.setFilter(' ', filters);
+      //
+      //   // Set the label to the month
+      //   document.getElementById('month').textContent = months[month];
+      // }
+
+      map.on('load', function () {
+
+        d3.json('https://www.mapbox.com/mapbox-gl-js/assets/data/significant-earthquakes-2015.geojson', function (err, data) {
+          if (err) throw err;
+
+          // Create a month property value based on time
+          // used to filter against.
+          data.features = data.features.map(function (d) {
+            d.properties.month = new Date(d.properties.time).getMonth();
+            return d;
+          });
+
+          /*map.addSource('', {
+            'type': 'geojson',
+            'data': data
+          });
+
+          map.addLayer({
+            'id': '',
+            'type': 'circle',
+            'source': '',
+
+          });
+
+          map.addLayer({
+            'id': '',
+            'type': 'symbol',
+            'source': 'e',
+
+          });
+*/
+
+          document.getElementById('slider').addEventListener('input', function (e) {
+            var month = parseInt(e.target.value, 10);
+            filterBy(time);
+          });
+        });
+      });
+    </script>
+  </body>
 </html>
