@@ -230,10 +230,17 @@ cursor: pointer;
 }
 
 .param, .param div {
-  line-height: 20px; font-size: 16px; line-height: 1.5em; color: white;
+  line-height: 20px;
+  font-size: 14px;
+  line-height: 1.5em;
+  color: white;
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
 }
-.paramValue, .paramTitle { display: inline-block; width: 100px;  }
-.paramValue { text-align: right; }
+.paramValue { width: 28px; }
+.paramTitle { width: 70px;  }
+.paramLine { width: 140px; }
 
 .btnDemo {
   margin-top: 25px;
