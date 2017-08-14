@@ -198,32 +198,29 @@ cursor: pointer;
 .outputArea { text-align: center; }
 
 #soundtrack {
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 10px;
+  padding: 20px;
   position: absolute;
-  bottom: 30px;
-  left: 10px;
-  right:10px;
+  bottom: 0;
+  left: 0;
+  right:0;
   flex: auto;
   flex-wrap: wrap;
   justify-content: space-between;
-	height: 155px;
 	opacity: 0.8;
 	background-color: #000000;
   z-index:2;
 }
 
-.graphArea {
-  margin-top: 25px;
-  left: 101px;
-  width: 780px;
+#graphArea {
   height: 100px;
+  min-width: 200px;
+  flex-grow: 1;
 }
 
 .outputArea {
-  margin-top: 25px;
 	height: 100px;
   width: 240px;
   text-align: left;
@@ -242,8 +239,7 @@ cursor: pointer;
 .paramTitle { width: 70px;  }
 .paramLine { width: 140px; }
 
-.btnDemo {
-  margin-top: 25px;
+.btns {
   width: 100px;
 	height: 100px;
 }
@@ -271,19 +267,21 @@ cursor: pointer;
 .btnStarted:hover {
 }
 
-#sensor { opacity: 0.5; fill: white; position: absolute; z-index: 500; }
-#sensor2 { opacity: 0.5; fill: white; position: absolute; z-index: 500; }
-#sensorCore { opacity: 1; fill: white; position: absolute; z-index: 800; }
-#sensorArea { display: inline-block; position: absolute; left: 50%; top: 50%; width: 200px; height: 200px; margin-left: -100px; margin-top: -100px; }
-#sensorValue { position: absolute; display: inline-block; z-index: 900; top: 0; left: 0; width: 200px; height: 200px; font-size: 16px; line-height: 130px; text-align: center; color: white; font-weight: bold; }
-#sensorPoint { position: absolute; display: inline-block; z-index: 400; top: 0; left: 0; width: 200px; height: 200px; font-size: 16px; line-height: 200px; }
+path {
+    stroke: #eee;
+    stroke-width: 1;
+    fill: none;
+}
 
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #999;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
 
-
-
-
-
-
+.tick text { fill: #aaa; }
 /*
 .groupHeader {
   font-weight: bold;
