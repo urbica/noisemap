@@ -8,6 +8,7 @@ body {
   height: 100%;
   font-family: 'NotoSans', sans-serif;
   font-weight: normal;
+  -webkit-font-smoothing: antialiased;
 }
 
 #map {
@@ -17,40 +18,39 @@ body {
   bottom: 0px;
   z-index: 1;
 }
-.headerInfo
-.header {
+.headerInfo {
   position: absolute;
   margin-top: 9px;
-  margin-left: 25px;
-  width: 252px;
+  width: 290px;
   height: 49px;
-  opacity: 0.5;
-  font-size: 36px;
-  font-style: italic;
-  text-align: left;
+  margin-left: 15px;
   color: #ffffff;
+  opacity: 0.5;
   z-index: 1;
   cursor: pointer;
 }
-.header:hover {
-  opacity: 0.7;
+.headerInfo:hover {
+  opacity: 1;
+}
+.header {
+  position: absolute;
+  width: 252px;
+  height: 49px;
+  font-size: 36px;
+  font-style: italic;
+  text-align: left;
 }
 
 .info {
 position: absolute;
 object-fit: contain;
-margin-top: 12px;
-margin-left: 10px;
-left: 276px;
+margin-top: 6px;
+left: 230px;
 width: 35px;
-opacity: 0.8;
-color: #ffffff;
 z-index: 1;
 cursor: pointer;
 }
-.info:hover {
-  opacity: 1;
-}
+
 
 #legend {
   position: absolute;
@@ -91,7 +91,7 @@ cursor: pointer;
     margin-bottom: 10px;
   }
 
-#time {
+/* #time {
   position: fixed;
   bottom: 20px;
   left: 240px;
@@ -129,6 +129,7 @@ cursor: pointer;
 #slider {
   width: 650px;
 }
+*/
 
 #description {
   top: 0px;
@@ -141,9 +142,8 @@ cursor: pointer;
   overflow-y: auto;
   height: 100%;
   z-index: 5;
-  transition: all 1s ease-in;
+  transition: all 0.5s ease-in;
 }
-
 
 .tab {
   display: flex;
@@ -169,7 +169,7 @@ cursor: pointer;
 }
 
 .tablinks:hover {
-  opacity: 0.8;
+  opacity: 1;
   animation: ease;
   margin-bottom: 10px;
 }
@@ -190,11 +190,90 @@ cursor: pointer;
   overflow-y: auto;
 }
 
-/*#project*/
 
 #method {
   display: none;
 }
+
+.outputArea { text-align: center; }
+
+#soundtrack {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px;
+  position: absolute;
+  bottom: 30px;
+  left: 10px;
+  right:10px;
+  flex: auto;
+  flex-wrap: wrap;
+  justify-content: space-between;
+	height: 155px;
+	opacity: 0.8;
+	background-color: #000000;
+  z-index:2;
+}
+
+.graphArea {
+  margin-top: 25px;
+  left: 101px;
+  width: 780px;
+  height: 100px;
+}
+
+.outputArea {
+  margin-top: 25px;
+	height: 100px;
+  width: 240px;
+  text-align: left;
+}
+
+.param, .param div {
+  line-height: 20px; font-size: 16px; line-height: 1.5em; color: white;
+}
+.paramValue, .paramTitle { display: inline-block; width: 100px;  }
+.paramValue { text-align: right; }
+
+.btnDemo {
+  margin-top: 25px;
+  width: 100px;
+	height: 100px;
+}
+
+.btn {
+  width: 45px;
+	height: 45px;
+  opacity: 0.5;
+  cursor: pointer;
+}
+.btn:hover {
+  opacity: 1;
+}
+
+
+
+.btnStarted {
+  width: 45px;
+  height: 45px;
+  padding: 28px;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  background-color: #ffffff;
+}
+.btnStarted:hover {
+}
+
+#sensor { opacity: 0.5; fill: white; position: absolute; z-index: 500; }
+#sensor2 { opacity: 0.5; fill: white; position: absolute; z-index: 500; }
+#sensorCore { opacity: 1; fill: white; position: absolute; z-index: 800; }
+#sensorArea { display: inline-block; position: absolute; left: 50%; top: 50%; width: 200px; height: 200px; margin-left: -100px; margin-top: -100px; }
+#sensorValue { position: absolute; display: inline-block; z-index: 900; top: 0; left: 0; width: 200px; height: 200px; font-size: 16px; line-height: 130px; text-align: center; color: white; font-weight: bold; }
+#sensorPoint { position: absolute; display: inline-block; z-index: 400; top: 0; left: 0; width: 200px; height: 200px; font-size: 16px; line-height: 200px; }
+
+
+
+
 
 
 

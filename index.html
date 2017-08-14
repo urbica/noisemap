@@ -12,14 +12,16 @@
   </head>
   <body>
   <div id="map"></div>
-  <div class='header' onclick="toggleDescription(true)"> КАРТА ШУМА </div>
-  <div class='info' onclick="toggleDescription(true)"> <img src="/Users/tatiana_ivannikova/Documents/urbica_noise_v2/noise_v2/src/info_icon.svg" style="width:35px;height:35px;center"></div>
+  <div class="headerInfo" onclick="toggleDescription(true)">
+    <div class='header' > КАРТА ШУМА </div>
+    <div class='info' onclick="toggleDescription(true)"> <img src="./src/info.svg" style="width:35px;height:35px;center"></div>
+  </div>
   <div id='description'>
     <div class="tab">
       <div class="tablinks" onclick="openTab(event,'project')" id="defaultOpen"> О ПРОЕКТЕ </div>
       <div class="tablinks" onclick="openTab(event,'method')"> МЕТОДОЛОГИЯ </div>
       <button id="closeButton" class="tablinks" onclick="toggleDescription(false)">
-        <img src="/Users/tatiana_ivannikova/Documents/urbica_noise_v2/noise_v2/src/close.svg" style="width:33px;height:28px;">
+        <img src="./src/close.svg" style="width:33px;height:28px;">
       </button>
     </div>
 
@@ -41,24 +43,19 @@
 создание карты шумового ландшафта города.
      </p>
   </div>
+    <div id="method" class="tabcontent">
+      <p> Methodology described here</p>
+    </div>
+ </div>
 
-  <div id="method" class="tabcontent">
-     <p> Methodology described here</p>
-  </div>
-
-  </div>
-
-  <div id='legend'>
+ <div id='legend'>
 
             <div class="dbItem" > < 45 дБ </div>
             <div class="dbItem" > 55 дБ</div>
             <div class="dbItem" > > 60 дБ</div>
-
             <div class="legendItem"> </div>
-
   </div>
-
-  <div id='time'>
+  <!-- <div id='time'>
     <div class="timePeriods">
           <div class='timeClass' > 7:00 - 10:00 </div>
           <div class='timeClass' > 10:00 - 12:00 </div>
@@ -69,7 +66,41 @@
     <div class='timeLine' id='line' >
          <input id='slider' type='range' min='1' max='6' step='1' value='1'>
    </div>
+  </div> -->
+<div id='sensorArea'>
+      <div id='sensorValue'></div>
+      <div id='sensorPoint'></div>
+</div>
+
+<div id="soundtrack" onclick="">
+  <div class="btnDemo">
+     <div class="btn"> <img src="./src/play.svg"> </div>
   </div>
+  <div class="graphArea"></div>
+  <div class="outputArea">
+      <div class='param'>
+        <div id='timeLabel'></div>
+      </div>
+      <div class='param'>
+        <div><div class='paramTitle'>Машины:</div><div class='paramValue' id='vehicles'></div></div>
+        <div class="paramLine" id='vehiclesLine'></div>
+      </div>
+      <div class='param'>
+        <div><div class='paramTitle'>Люди:</div><div class='paramValue' id='people'></div></div>
+        <div class="paramLine" id='peopleLine'></div>
+      </div>
+      <div class='param'>
+        <div><div class='paramTitle'>Музыка:</div><div class='paramValue' id='music'></div></div>
+        <div class="paramLine" id='musicLine'></div>
+      </div>
+      <div class='param'>
+        <div><div class='paramTitle'>Жд:</div><div class='paramValue' id='railway'></div></div>
+        <div class="paramLine" id='railwayLine'></div>
+      </div>
+  </div>
+</div>
+
+
 
     <script>
       mapboxgl.accessToken = 'pk.eyJ1IjoidGF0aWFuYWl2YW5uaWtvdmEiLCJhIjoiY2o0bzA3azRnMWd0ZTJ3cGcxdHd2NnUzYSJ9.2ps-jd_6FNsnteFLjqsvog';
@@ -135,5 +166,6 @@
         });
       });
     </script>
+    <script src='./src/simulate.js'></script>
   </body>
 </html>
