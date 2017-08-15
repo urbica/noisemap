@@ -26,21 +26,10 @@
     </div>
 
   <div id="project" class="tabcontent">
-      <p> Население городов растет (цифра ООН), вместе с тем растут и запросы горожан на качество жизни в городе, качество городской среды.
-Шумовое картографирование необходимо крупным городам, так как шумовое загрязнение - один из тех показателей качества среды, который влияет не только на комфорт жителей, но и на состояние их здоровья.
-(шокирующие факты - цифры ВОЗ)
-Карта шума - эффективный инструмент анализа шумового загрязнения города, позволяющий быстро и точно определить места, наиболее подверженные воздействию шума и выявить источники шума.
-Шумовое загрязнение неоднородно в пространстве и во времени, его распространение зависит от множества параметров городской среды. Именно поэтому необходимо создавать модели и изучать закономерности распространения шума для того чтобы упростить мониторинг городского шума.
-Проект включал 5 этапов:
-разработка методологии исследования;
-разработка датчика измерения шума;
-статические замеры шума вблизи основных источников источников:
-дорог разных категорий,
-железных дорог,
-мест проведения строительных работ,
-скопления людей.
-обработка полученных данных;
-создание карты шумового ландшафта города.
+      <p> Изучение шума — важная задача в условиях мегаполиса, потому как именно этот фактор загрязнения часто не учитывается, несмотря на своё большое влияние на организм человека. Традиционно шум измеряется в полевых условиях с множеством датчиков за большой период времени, который должен перекрывать не только дневные, сезонные, но и годовые изменения различных факторов. Естественно, такой процесс требует больших ресурсов, как технических, так и людских.
+</p>
+<p> </p>
+<p> Команда Urbica исследует проблему городского шума, используя новые методы и современные технологии. Мы подготовили карту шумового загрязнения города Москвы основанную на модели анализа распространения шума от определенных типов объектов, уточненную данными, полученными полевыми измерениями при помощи датчиков, разработанного и собранного самостоятельно.
      </p>
   </div>
     <div id="method" class="tabcontent">
@@ -78,8 +67,18 @@
       <div id='sensorPoint'></div>
 </div>
 
-<div id="soundtrack" onclick="">
-  <div class="btns">
+
+<div id="soundtrack" onclick="" >
+  <div class = "sensorTitle">
+    <div class = "Title"> Показатели шума в реальном времени </div>
+    <div class = "emptyCell"></div>
+    <div class = "closeBtn" onclick="hide('soundtrack')"><img src="./src/invalid-name.svg">
+</div>
+  </div>
+
+
+  <div class = "sensorContent" >
+    <div class="btns">
      <div class="btn" id="btnDemoStart"><img src="./src/play.svg"></div>
      <div class="btn" id="btnDemoPause"><img src="./src/pause.svg"></div>
   </div>
@@ -89,25 +88,26 @@
         <div id='timeLabel'></div>
       </div>
       <div class='param'>
-        <div class='paramTitle'>Машины:</div>
+        <div class='paramTitle'>Машины </div>
         <div class="paramLine" id='vehiclesLine'></div>
         <div class='paramValue' id='vehicles'></div>
       </div>
       <div class='param'>
-        <div class='paramTitle'>Люди:</div>
+        <div class='paramTitle'>Люди </div>
         <div class="paramLine" id='peopleLine'></div>
         <div class='paramValue' id='people'></div>
       </div>
       <div class='param'>
-        <div class='paramTitle'>Музыка:</div>
+        <div class='paramTitle'>Музыка </div>
         <div class="paramLine" id='musicLine'></div>
         <div class='paramValue' id='music'></div>
       </div>
       <div class='param'>
-        <div class='paramTitle'>Жд:</div>
+        <div class='paramTitle'>Ж/д </div>
         <div class="paramLine" id='railwayLine'></div>
         <div class='paramValue' id='railway'></div>
       </div>
+    </div>
   </div>
 </div>
 
@@ -150,25 +150,6 @@
             return d;
           });
 
-          /*map.addSource('', {
-            'type': 'geojson',
-            'data': data
-          });
-
-          map.addLayer({
-            'id': '',
-            'type': 'circle',
-            'source': '',
-
-          });
-
-          map.addLayer({
-            'id': '',
-            'type': 'symbol',
-            'source': 'e',
-
-          });
-*/
 
           document.getElementById('slider').addEventListener('input', function (e) {
             var month = parseInt(e.target.value, 10);

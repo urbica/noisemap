@@ -11,6 +11,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+p {
+  padding-bottom: 15px;
+}
+
 #map {
   position: absolute;
   width: 100%;
@@ -132,13 +136,10 @@ cursor: pointer;
 */
 
 #description {
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
   position: absolute;
   width: 562px;
 	background-color: #101a4a;
-  padding: 10px;
+  padding: 10px 10px 0;
   overflow-y: auto;
   height: 100%;
   z-index: 5;
@@ -199,21 +200,50 @@ cursor: pointer;
 
 #soundtrack {
   display: none;
-  flex-wrap: wrap;
-  justify-content: space-between;
   padding: 20px;
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right:0;
-  flex: auto;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  bottom: 30px;
+  left: 10px;
+  right:10px;
 	opacity: 0.8;
 	background-color: #000000;
   z-index:2;
 }
+.sensorTitle {
+  display: flex;
+  height: 30px;
+}
 
+.Title{
+  width: 300px;
+	height: 19px;
+	font-family: NotoSans;
+	font-size: 14px;
+	color: #ffffff;
+}
+.emptyCell {
+  width: 1120px;
+}
+.closeBtn {
+  width: 19.7px;
+	height: 19.7px;
+	object-fit: contain;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.closeBtn:hover {
+  opacity: 1;
+}
+.sensorContent {
+  height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex: auto;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 #graphArea {
   height: 100px;
   min-width: 200px;
@@ -234,10 +264,14 @@ cursor: pointer;
   text-align: left;
   display: flex;
   flex-wrap: wrap;
+  align-items: baseline;
 }
-.paramValue { width: 28px; }
+.paramValue { width: 27px; margin-left: 2px;}
 .paramTitle { width: 70px;  }
-.paramLine { width: 140px; }
+.paramLine {
+  width: 140px;
+  align-items: baseline;
+}
 
 .btns {
   width: 100px;

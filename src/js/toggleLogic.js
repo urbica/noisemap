@@ -38,7 +38,9 @@ var soundtrack = d3.select("#soundtrack"),
     trackSvg = d3.select("#graphArea").append("svg"),
     graphArea = d3.select("#graphArea");
 
-var sensorData = { "type": "FeatureCollection", "features": [{ "type": "Feature", "properties": { "level": 76 }, "geometry": { "type": "Point", "coordinates": [37.51525282859802, 55.805529087190756] }}]};
+var sensorData = { "type": "FeatureCollection", "features":
+[{ "type": "Feature", "properties": { "level": 76 },
+"geometry": { "type": "Point", "coordinates": [37.51525282859802, 55.805529087190756] }}]};
 
 
 setTimeout(function() {
@@ -50,6 +52,16 @@ var description=document.getElementById('description');
 function toggleDescription(show) {
   if(show) { description.style.left="0"; }
   else { description.style.left="-100%"; }
+}
+
+function hide(obj) {
+    var el = document.getElementById(obj);
+        el.style.display = 'none';
+}
+
+function show(obj) {
+   var s=document.getElementById(obj);
+   s.style.display = 'block';
 }
 
 function openTab(evt,tabName) {
@@ -150,7 +162,7 @@ function toggleSensorPanel() {
   if(!sensorPanelIsOpen) {
     map.dragPan.disable();
     map.scrollZoom.disable();
-    soundtrack.style("display", "flex");
+    soundtrack.style("display", "block");
     sensorPanelIsOpen = true;
   } else {
     map.dragPan.enable();
