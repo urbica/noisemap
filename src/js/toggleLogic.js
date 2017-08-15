@@ -6,7 +6,8 @@ var map = new mapboxgl.Map({
   zoom: 10
 });
 
-var sensorPanelIsOpen = false,
+var prevView = { center: [37.619733, 55.755401], zoom: 10 },
+    sensorPanelIsOpen = false,
     demoIsStarted = false,
     interval,
     pointer,
@@ -122,13 +123,6 @@ map.on('load', function () {
     canvas.style.cursor = '';
     });
 
-    // map.on('click', 'sensor-bg', function (e) {
-    // map.flyTo({center: e.features[0].geometry.coordinates, zoom: 13 });
-    //   toggleSensorPanel();
-    //   console.log(map.getStyle());
-    // //  if(!sensorPanelIsOpen) { toggleSensorPanel(); }
-    // });
-
     map.on('click', function (e) {
       var bbox = [[e.point.x - 32, e.point.y - 32], [e.point.x + 32, e.point.y + 32]];
       var features = map.queryRenderedFeatures(bbox, { layers: ['sensor-bg'] });
@@ -136,9 +130,11 @@ map.on('load', function () {
         if(sensorPanelIsOpen) {
           toggleSensorPanel();
           if(demoIsStarted) { toggleDemoMode(); }
+          map.flyTo(prevView);
          }
       } else {
         if(!sensorPanelIsOpen) {
+          prevView = { center: map.getCenter(), zoom: map.getZoom() };
           toggleSensorPanel();
           map.flyTo({center: features[0].geometry.coordinates, zoom: 13});
          }
@@ -172,8 +168,6 @@ d3.json("./data/sensor-simulation.json", function(error, json) {
   trackData = json;
   drawGraph(trackData);
 
-  btnDemoStart.on("click", toggleDemoMode);
-
 });
 
 
@@ -196,8 +190,12 @@ toggleDemoMode = () => {
 
 
 moveNext = () => {
+  if(current>=trackData.length) {
+    current = 0;
+    audio.currentTime = 0;
+  }
   updateParams(trackData[current]);
-  current = (current<trackData.length) ? (current+1) : 0;
+  current++;
 }
 
 
@@ -205,7 +203,6 @@ updateParams = (d) => {
   params.map(p => {
     paramLabels[p].text(formatValue(d[p]) + '%');
     paramLines[p].attr("width", formatValue(d[p])*2)
-    console.log(p);
   });
 
   //map radius
