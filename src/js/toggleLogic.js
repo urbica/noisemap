@@ -40,7 +40,7 @@ var soundtrack = d3.select("#soundtrack"),
 
 var sensorData = { "type": "FeatureCollection", "features":
 [{ "type": "Feature", "properties": { "level": 76 },
-"geometry": { "type": "Point", "coordinates": [37.51525282859802, 55.805529087190756] }}]};
+"geometry": { "type": "Point", "coordinates": [37.531477823243925, 55.80127466175835] }}]};
 
 
 setTimeout(function() {
