@@ -16,7 +16,7 @@ var prevView = { center: [37.619733, 55.755401], zoom: 10 },
     x,
     y,
     trackData = [],
-    margin = {top: 10, right: 10, bottom: 10, left: 20},
+    margin = {top: 10, right: 10, bottom: 10, left: 30},
     params = ['vehicles', 'people', 'music', 'railway'],
     paramLines = [],
     paramLabels = [],
@@ -41,7 +41,7 @@ var soundtrack = d3.select("#soundtrack"),
 
 var sensorData = { "type": "FeatureCollection", "features":
 [{ "type": "Feature", "properties": { "level": 76 },
-"geometry": { "type": "Point", "coordinates": [37.531477823243925, 55.80127466175835] }}]};
+"geometry": { "type": "Point", "coordinates": [37.635034,55.757691] }}]};
 
 
 setTimeout(function() {
@@ -173,7 +173,7 @@ function toggleSensorPanel() {
   }
 }
 
-d3.json("./data/sensor-simulation.json", function(error, json) {
+d3.json("./data/sensor-data.json", function(error, json) {
   if (error) throw error;
   json.map((d) => { d['date'] = new Date(d.dt); return d; });
 
@@ -253,7 +253,7 @@ function drawGraph(data) {
 
   // Scale the range of the data
   x.domain(d3.extent(data, function(d) { return d.date; }));
-  y.domain([30, d3.max(data, function(d) { return d.level; })]);
+  y.domain([20, 100]);
 
   trackSvg.append("path")
       .data([data])
