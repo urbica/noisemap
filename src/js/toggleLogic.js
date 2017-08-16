@@ -36,7 +36,8 @@ var soundtrack = d3.select("#soundtrack"),
     btnDemoStart = d3.select("#btnDemoStart").style("display", "block"),
     btnDemoPause = d3.select("#btnDemoPause").style("display", "none"),
     trackSvg = d3.select("#graphArea").append("svg"),
-    graphArea = d3.select("#graphArea");
+    graphArea = d3.select("#graphArea"),
+    closeBtn = d3.select("#closeBtn");
 
 var sensorData = { "type": "FeatureCollection", "features":
 [{ "type": "Feature", "properties": { "level": 76 },
@@ -284,5 +285,6 @@ function drawGraph(data) {
 
 }
 
+closeBtn.on('click', toggleSensorPanel);
 btnDemoStart.on('click', toggleDemoMode);
 btnDemoPause.on('click', toggleDemoMode);
