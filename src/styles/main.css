@@ -1,14 +1,11 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
 body {
   width: 100%;
   height: 100%;
   font-family: 'NotoSans', sans-serif;
   font-weight: normal;
   -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
 }
 
 p {
@@ -49,7 +46,7 @@ p {
 position: absolute;
 object-fit: contain;
 margin-top: 6px;
-left: 230px;
+left: 250px;
 width: 35px;
 z-index: 1;
 cursor: pointer;
@@ -141,7 +138,8 @@ cursor: pointer;
 
 #description {
   position: absolute;
-  width: 562px;
+  box-sizing: border-box;
+  width: 600px;
 	background-color: #101a4a;
   padding: 10px 10px 0;
   overflow-y: auto;
@@ -193,6 +191,24 @@ cursor: pointer;
 	font-size: 18px;
 	color: #ffffff;
   overflow-y: auto;
+}
+
+.tabcontent ul {
+  list-style: circle;
+}
+
+.tabcontent ol > li {
+  margin-bottom: 10px;
+}
+
+.tabcontent img {
+  object-fit: cover;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.tabcontent a {
+  color: white;
 }
 
 #iconsLegend {
