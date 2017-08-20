@@ -139,13 +139,36 @@ cursor: pointer;
 #description {
   position: absolute;
   box-sizing: border-box;
-  width: 600px;
+  max-width: 600px;
+  width: 100%;
 	background-color: #101a4a;
   padding: 10px 10px 0;
   overflow-y: auto;
   height: 100%;
-  z-index: 5;
+  z-index: 10;
   transition: all 0.5s ease-in;
+}
+
+@media (max-width: 600px) {
+  .tablinks {
+    font-size: 18px;
+  }
+
+  .tabcontent {
+    margin-left: 11px;
+    margin-top: 19px;
+    font-size: 14px;
+    color: #ffffff;
+    overflow-y: auto;
+  }
+
+  .header {
+    display: none;
+  }
+
+  .info {
+    left: 10px;
+  }
 }
 
 .tab {
@@ -185,7 +208,7 @@ cursor: pointer;
 }
 
 .tabcontent {
-  width: 505px;
+  max-width: 505px;
   margin-left: 21px;
   margin-top: 29px;
 	font-size: 18px;
