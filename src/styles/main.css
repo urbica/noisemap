@@ -56,6 +56,8 @@ cursor: pointer;
 }
 
 
+
+
 #legend {
   position: absolute;
   display: flex;
@@ -94,6 +96,8 @@ cursor: pointer;
     margin-left: 10px;
     margin-bottom: 10px;
   }
+
+
 
 /* #time {
   position: fixed;
@@ -190,6 +194,40 @@ cursor: pointer;
 	color: #ffffff;
   overflow-y: auto;
 }
+
+#iconsLegend {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 220px;
+  opacity: 0.8;
+  background-color: #000000;
+  z-index: 5;
+  top: 60px;
+  right: 7px;
+  padding: 2px;
+  }
+
+  .icon {
+    width: 15px;
+    height: 15px;
+    align-items: center;
+    padding: 10px;
+
+  }
+
+  .iconName {
+    width: 155px;
+    height: 19px;
+    font-family: Arial;
+    font-size: 14px;
+    text-align: left;
+    color: #ffffff;
+    padding: 15px;
+
+  }
+
 
 
 #method {

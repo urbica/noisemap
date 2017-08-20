@@ -62,6 +62,18 @@
             <div class="dbItem" > 55 дБ</div>
             <div class="dbItem" > > 60 дБ</div>
             <div class="legendItem"> </div>
+
+  </div>
+
+  <div id="iconsLegend">
+    <div class="icon"> <img src='./src/rail-15.svg'>
+    </div>
+    <div class="iconName"> Ж/д вокзал </div>
+    <div class="icon"> <img src= "./src/warehouse-15.svg"> </div>
+    <div class="iconName"> Строительные работы </div>
+    <div class="icon"> <img src= './src/shop-15.svg'> </div>
+    <div class="iconName"> Торговый центр</div>
+
   </div>
   <!-- <div id='time'>
     <div class="timePeriods">
@@ -167,7 +179,6 @@
             d.properties.month = new Date(d.properties.time).getMonth();
             return d;
           });
-
 
           document.getElementById('slider').addEventListener('input', function (e) {
             var month = parseInt(e.target.value, 10);
