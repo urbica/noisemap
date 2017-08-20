@@ -118,7 +118,7 @@ updateParams = (d) => {
 }
 
 formatValue = (v) => {
-  return Math.round(v*100);
+  return Math.round(v);
 }
 
     // Get the data
