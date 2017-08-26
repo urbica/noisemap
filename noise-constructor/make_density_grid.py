@@ -1,6 +1,6 @@
 import geopandas as gp
-import os, math
 import shapefile as shp
+import os, math
 
 path = os.path.dirname(os.path.realpath(__file__))
 
@@ -38,7 +38,7 @@ def make_fishnet(bbox):
     grid.crs = {'init': u'epsg:32637'}
     return grid
 
-houses = gp.read_file(path+'houses.shp')
+houses = gp.read_file(path+'/houses.shp')
 houses = houses.to_crs(epsg=32637)
 houses = houses[['geometry']]
 print 'houses ready'
@@ -46,7 +46,7 @@ print 'houses ready'
 houses['area'] = houses.area
 
 #grid = gp.read_file(path+'/grid.shp')
-bounds = gp.read_file(path+'/export.geojson').to_crs(epsg=32637).total_bounds
+bounds = gp.read_file(path+'/noise_makers.geojson').to_crs(epsg=32637).total_bounds
 grid = make_fishnet(bounds)
 #grid = grid.to_crs(epsg=32637)
 print 'grid ready'
