@@ -125,7 +125,7 @@ map.on('load', function () {
         }
     });
 
-  fetch('./data/dissolved.geojson')
+  fetch('./noise-constructor/dissolved.geojson')
     .then(r => r.json())
     .then(resp => {
     console.log(resp);
