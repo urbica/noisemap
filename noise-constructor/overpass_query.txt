@@ -1,0 +1,56 @@
+[out:json][timeout:250];
+// gather results
+(
+  // query part for: "building=*"
+  node["tourism"="viewpoint"]({{bbox}});
+  way["tourism"="viewpoint"]({{bbox}});
+  relation["tourism"="viewpoint"]({{bbox}});
+  node["historic=*"]({{bbox}});
+  way["historic=*"]({{bbox}});
+  relation["historic=*"]({{bbox}});
+  node["tourism"="gallery"]({{bbox}});
+  way["tourism"="gallery"]({{bbox}});
+  relation["tourism"="gallery"]({{bbox}});
+  node["tourism"="artwork"]({{bbox}});
+  way["tourism"="artwork"]({{bbox}});
+  relation["building:architecture=*"]({{bbox}});
+  node["building:architecture=*"]({{bbox}});
+  way["building:architecture=*"]({{bbox}});
+  relation["building:architecture=*"]({{bbox}});
+  node["artwork_type=*"]({{bbox}});
+  way["artwork_type=*"]({{bbox}});	
+  relation["artwork_type"="*"]({{bbox}});
+  node["amenity"="arts_centre"]({{bbox}});
+  way["amenity"="arts_centre"]({{bbox}});
+  relation["amenity"="arts_centre"]({{bbox}});
+  node["tourism"="museum"]({{bbox}});
+  way["tourism"="museum"]({{bbox}});
+  relation["tourism"="museum"]({{bbox}});
+   node["amenity"="theatre"]({{bbox}});
+  way["amenity"="theatre"]({{bbox}});
+  relation["amenity"="theatre"]({{bbox}});
+  node["tourism"="attraction"]({{bbox}});
+  way["tourism"="attraction"]({{bbox}});
+  relation["tourism"="attraction"]({{bbox}});
+  node["tourism"="zoo"]({{bbox}});
+  way["tourism"="zoo"]({{bbox}});
+  relation["tourism"="zoo"]({{bbox}});
+  node["zoo"="petting_zoo"]({{bbox}});
+  way["zoo"="petting_zoo"]({{bbox}});
+  relation["zoo"="petting_zoo"]({{bbox}});
+  node["zoo"="aviary"]({{bbox}});
+  way["zoo"="aviary"]({{bbox}});
+  relation["zoo"="aviary"]({{bbox}});
+  node["tourism"="aquarium"]({{bbox}});
+  way["tourism"="aquarium"]({{bbox}});
+  relation["tourism"="aquarium"]({{bbox}});
+  node["zoo"="aquarium"]({{bbox}});
+  way["zoo"="aquarium"]({{bbox}});
+  relation["zoo"="aquarium"]({{bbox}});
+  
+  //relation["building"]({{bbox}});
+);
+// print results
+out body;
+>;
+out skel qt;
