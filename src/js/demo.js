@@ -23,7 +23,7 @@ var prevView = { center: [37.619733, 55.755401], zoom: 10 },
     paramLines = [],
     paramLabels = [],
     audio = document.getElementById("audioTrack"),
-    parseTime = d3.timeParse("%H-%m-%S");;
+    parseTime = d3.timeParse("%H-%m-%S");
 
         //linking divs
 
@@ -125,7 +125,7 @@ map.on('load', function () {
         }
     });
 
-  fetch('./data/dissolved.geojson')
+  fetch('./noise-constructor/dissolved.geojson')
     .then(r => r.json())
     .then(resp => {
     console.log(resp);
