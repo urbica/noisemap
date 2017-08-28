@@ -23,7 +23,7 @@ var prevView = { center: [37.619733, 55.755401], zoom: 10 },
     paramLines = [],
     paramLabels = [],
     audio = document.getElementById("audioTrack"),
-    parseTime = d3.timeParse("%H-%m-%S");;
+    parseTime = d3.timeParse("%H-%m-%S");
 
         //linking divs
 
